@@ -10,7 +10,7 @@ public class UsuarioMapper {
         dto.setId(u.getId());
         dto.setNombre(u.getNombre());
         dto.setEmail(u.getEmail());
-        dto.setTelefono(u.getTelefono());
+        dto.setTelefono(u.getPassword());
         return dto;
     }
 
@@ -19,7 +19,7 @@ public class UsuarioMapper {
         u.setId(dto.getId());
         u.setNombre(dto.getNombre());
         u.setEmail(dto.getEmail());
-        u.setTelefono(dto.getTelefono());
+        u.setPassword(dto.getTelefono());
         return u;
     }
 }

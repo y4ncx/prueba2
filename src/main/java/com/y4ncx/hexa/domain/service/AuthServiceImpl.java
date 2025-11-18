@@ -15,8 +15,7 @@ public class AuthServiceImpl implements IAuthService {
     @Override
     public Usuario login(Credenciales credenciales) {
 
-        Usuario usuario = usuarioRepository.findByEmail(credenciales.getEmail())
-                .orElse(null);
+        Usuario usuario = usuarioRepository.findByEmail(credenciales.getEmail());
 
         if (usuario == null) {
             throw new RuntimeException("Usuario no encontrado");
@@ -28,4 +27,5 @@ public class AuthServiceImpl implements IAuthService {
 
         return usuario;
     }
+
 }

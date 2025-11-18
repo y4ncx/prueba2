@@ -6,6 +6,7 @@ import com.y4ncx.hexa.domain.service.IMascotaService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MascotaApplicationService {
@@ -22,9 +23,11 @@ public class MascotaApplicationService {
         );
     }
 
-    public MascotaDTO findById(Long id) {
-        return MascotaMapper.toDTO(mascotaService.findById(id));
+    public Optional<MascotaDTO> findById(Long id) {
+        return mascotaService.findById(id)
+                .map(MascotaMapper::toDTO);
     }
+
 
     public List<MascotaDTO> findAll() {
         return mascotaService.findAll()

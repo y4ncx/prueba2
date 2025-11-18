@@ -4,6 +4,7 @@ import com.y4ncx.hexa.domain.model.Mascota;
 import com.y4ncx.hexa.domain.repository.MascotaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public class MascotaServiceImpl implements IMascotaService {
 
@@ -19,9 +20,10 @@ public class MascotaServiceImpl implements IMascotaService {
     }
 
     @Override
-    public Mascota findById(Long id) {
+    public Optional<Mascota> findById(Long id) {
         return mascotaRepository.findById(id);
     }
+
 
     @Override
     public List<Mascota> findAll() {

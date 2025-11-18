@@ -5,6 +5,7 @@ import com.y4ncx.hexa.domain.repository.MascotaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MascotaService implements IMascotaService {
@@ -21,7 +22,7 @@ public class MascotaService implements IMascotaService {
     }
 
     @Override
-    public Mascota findById(Long id) {
+    public Optional<Mascota> findById(Long id) {
         return repository.findById(id);
     }
 
