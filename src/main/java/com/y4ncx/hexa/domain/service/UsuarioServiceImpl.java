@@ -5,6 +5,7 @@ import com.y4ncx.hexa.domain.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioServiceImpl implements IUsuarioService {
@@ -21,7 +22,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
     }
 
     @Override
-    public Usuario findById(Long id) {
+    public Optional<Usuario> findById(Long id) {
         return repo.findById(id);
     }
 

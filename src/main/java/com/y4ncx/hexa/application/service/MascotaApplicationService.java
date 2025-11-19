@@ -29,6 +29,7 @@ public class MascotaApplicationService {
     }
 
 
+
     public List<MascotaDTO> findAll() {
         return mascotaService.findAll()
                 .stream().map(MascotaMapper::toDTO).toList();

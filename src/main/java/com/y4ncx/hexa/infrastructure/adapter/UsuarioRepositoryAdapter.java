@@ -7,6 +7,7 @@ import com.y4ncx.hexa.infrastructure.repository.JpaUsuarioRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class UsuarioRepositoryAdapter implements UsuarioRepository {
@@ -24,14 +25,13 @@ public class UsuarioRepositoryAdapter implements UsuarioRepository {
     }
 
     @Override
-    public Usuario findById(Long id) {
-        return jpa.findById(id).map(this::toModel).orElse(null);
+    public Optional<Usuario> findById(Long id) {
+        return jpa.findById(id).map(this::toModel);
     }
 
     @Override
-    public Usuario findByEmail(String email) {
-        UsuarioEntity entity = jpa.findByEmail(email);
-        return entity == null ? null : toModel(entity);
+    public Optional<Usuario> findByEmail(String email) {
+        return jpa.findByEmail(email).map(this::toModel);
     }
 
     @Override
@@ -44,13 +44,13 @@ public class UsuarioRepositoryAdapter implements UsuarioRepository {
         jpa.deleteById(id);
     }
 
-
     private Usuario toModel(UsuarioEntity e) {
         Usuario u = new Usuario();
         u.setId(e.getId());
         u.setNombre(e.getNombre());
         u.setEmail(e.getEmail());
         u.setPassword(e.getPassword());
+        u.setTelefono(e.getTelefono());
         return u;
     }
 
@@ -60,6 +60,7 @@ public class UsuarioRepositoryAdapter implements UsuarioRepository {
         e.setNombre(u.getNombre());
         e.setEmail(u.getEmail());
         e.setPassword(u.getPassword());
+        e.setTelefono(u.getTelefono());
         return e;
     }
 }

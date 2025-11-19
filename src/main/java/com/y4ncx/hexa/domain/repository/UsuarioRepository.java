@@ -2,14 +2,15 @@ package com.y4ncx.hexa.domain.repository;
 
 import com.y4ncx.hexa.domain.model.Usuario;
 import java.util.List;
+import java.util.Optional;
 
 public interface UsuarioRepository {
 
     Usuario save(Usuario usuario);
 
-    Usuario findById(Long id);
+    Optional<Usuario> findById(Long id);
 
-    Usuario findByEmail(String email);
+    Optional<Usuario> findByEmail(String email);
 
     List<Usuario> findAll();
 

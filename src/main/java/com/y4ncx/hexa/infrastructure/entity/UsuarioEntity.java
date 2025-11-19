@@ -18,6 +18,4 @@ public class UsuarioEntity {
     private String telefono;
 
     public UsuarioEntity() {}
-
-    // getters y setters...
 }

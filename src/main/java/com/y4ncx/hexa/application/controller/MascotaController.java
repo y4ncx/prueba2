@@ -40,7 +40,7 @@ public class MascotaController {
                 .toList();
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public MascotaDTO update(@PathVariable Long id, @RequestBody MascotaDTO dto) {
         return MascotaMapper.toDTO(
                 service.update(id, MascotaMapper.toModel(dto))
